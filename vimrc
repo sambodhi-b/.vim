@@ -20,3 +20,5 @@ let g:airline_theme='gruvbox'
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
 
+map <C-n> :NERDTreeToggle<CR>
+
