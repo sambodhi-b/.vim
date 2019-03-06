@@ -30,6 +30,10 @@ let g:airline_theme='gruvbox'
 " Keyboard Shortcut Mappings
 map <C-n> :NERDTreeToggle<CR>
 
+" Search Options
+set incsearch
+set hlsearch
+map ,hl :nohls<CR>
 
 " =============================================================================
 "                                YAML Specific
