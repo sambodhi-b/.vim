@@ -47,16 +47,19 @@ nnoremap <space> za
 "                               Python Specific
 " =============================================================================
 autocmd Filetype python setlocal
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-    \ set encoding=utf-8
-    \ set omnifunc=pythoncomplete#Complete
-    \ match BadWhitespace /\s\+$/
+    \ tabstop=4
+    \ softtabstop=4
+    \ shiftwidth=4
+    \ textwidth=79
+    \ expandtab
+    \ autoindent
+    \ fileformat=unix
+    \ encoding=utf-8
+    \ omnifunc=pythoncomplete#Complete
+autocmd FileType python match Error /\s\+$/
+
+" Enable Docstring Preview in Fold Text
+let g:SimpylFold_docstring_preview=1
 
 
 " =============================================================================
