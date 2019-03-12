@@ -44,6 +44,21 @@ nnoremap <space> za
 
 
 " =============================================================================
+"                               Python Specific
+" =============================================================================
+autocmd Filetype python setlocal
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+    \ set encoding=utf-8
+    \ match BadWhitespace /\s\+$/
+
+
+" =============================================================================
 "                                YAML Specific
 " =============================================================================
 autocmd Filetype yaml setlocal shiftwidth=2 softtabstop=2 expandtab
