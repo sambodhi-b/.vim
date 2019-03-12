@@ -1,3 +1,5 @@
+set nocompatible
+
 " =============================================================================
 "                             Setting up Pathogen
 " =============================================================================
@@ -30,8 +32,13 @@ let g:airline_theme='gruvbox'
 " Keyboard Shortcut Mappings
 map <C-n> :NERDTreeToggle<CR>
 
+" Search Options
+set incsearch
+set hlsearch
+nmap ,hl :nohls<CR>
 
 " =============================================================================
 "                                YAML Specific
 " =============================================================================
 autocmd Filetype yaml setlocal shiftwidth=2 softtabstop=2 expandtab
+
