@@ -1,3 +1,5 @@
+set nocompatible
+
 " =============================================================================
 "                             Setting up Pathogen
 " =============================================================================
@@ -33,9 +35,10 @@ map <C-n> :NERDTreeToggle<CR>
 " Search Options
 set incsearch
 set hlsearch
-map ,hl :nohls<CR>
+nmap ,hl :nohls<CR>
 
 " =============================================================================
 "                                YAML Specific
 " =============================================================================
 autocmd Filetype yaml setlocal shiftwidth=2 softtabstop=2 expandtab
+
