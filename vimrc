@@ -37,6 +37,12 @@ set incsearch
 set hlsearch
 nmap ,hl :nohls<CR>
 
+" Folding Options
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
+
+
 " =============================================================================
 "                                YAML Specific
 " =============================================================================
