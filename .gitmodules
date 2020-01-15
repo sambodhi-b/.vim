@@ -19,3 +19,6 @@
 [submodule "bundle/YouCompleteMe"]
 	path = bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "bundle/vim-indent-object"]
+	path = bundle/vim-indent-object
+	url = https://github.com/michaeljsmith/vim-indent-object.git
