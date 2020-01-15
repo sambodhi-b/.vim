@@ -56,6 +56,8 @@ autocmd Filetype python setlocal
     \ fileformat=unix
     \ encoding=utf-8
     \ omnifunc=pythoncomplete#Complete
+    \ formatprg=yapf
+    \ equalprg=yapf
 autocmd FileType python match Error /\s\+$/
 
 " Enable Docstring Preview in Fold Text
@@ -80,4 +82,10 @@ autocmd Filetype yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 "                                JSON Specific
 " =============================================================================
 nmap =j :%!python -m json.tool<CR>
+
+" =============================================================================
+"                                T-SQL Specific
+" =============================================================================
+let g:sql_type_default = "sqlserver"
+au BufNewFile,BufRead *.tsql set filetype=sqlserver
 
