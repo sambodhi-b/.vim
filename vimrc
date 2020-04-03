@@ -23,7 +23,6 @@ set shiftwidth=4 softtabstop=4 expandtab
 
 " Colors
 colorscheme gruvbox
-set termguicolors
 set background=dark
 
 " Airline Settings
