@@ -1,19 +1,40 @@
-set nocompatible
+" Set Tue Colors
+" set termguicolors
 
-" =============================================================================
-"                             Setting up Pathogen
-" =============================================================================
-execute pathogen#infect()
+" Install vim-plug if not available
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" =============================================================================
-"                              Common Settings
-" =============================================================================
-syntax on
-" Indentation Settings
+" Install Plugins
+call plug#begin('~/.vim/plugged')
+
+" Colors!
+Plug 'morhetz/gruvbox'
+
+" Airline StatusLine
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" NERDTree
+Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
+
+" Completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+
+" Set <leader> to ,
+let mapleader = ","
+
+" Global Indentation Settings
 filetype plugin indent on
 set shiftwidth=4 softtabstop=4 expandtab
 
-" Defined as per https://jeffkreeftmeijer.com/vim-number/
+" Line Numbering
 :set number relativenumber
 :augroup numbertoggle
 :  autocmd!
@@ -21,71 +42,27 @@ set shiftwidth=4 softtabstop=4 expandtab
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
 
-" Colors
+" Set GruvBox Theme
 colorscheme gruvbox
 set background=dark
 
-" Airline Settings
+" Shortcut Key for NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+" Settings AirLine Options
 let g:airline_powerline_fonts = 1
 let g:airline_theme='gruvbox'
-
-" Keyboard Shortcut Mappings
-map <C-n> :NERDTreeToggle<CR>
+let g:airline#extensions#tabline#enabled = 1
 
 " Search Options
 set incsearch
 set hlsearch
-nmap ,hl :nohls<CR>
+nmap <leader>hl :nohls<CR>
 
-" Folding Options
-set foldmethod=indent
-set foldlevel=99
-nnoremap <space> za
+" Settings for CoC
+if filereadable(expand("~/.vim/coc-mappings.vim"))
+  source ~/.vim/coc-mappings.vim
+endif
 
-
-" =============================================================================
-"                               Python Specific
-" =============================================================================
-autocmd Filetype python setlocal
-    \ tabstop=4
-    \ softtabstop=4
-    \ shiftwidth=4
-    \ textwidth=79
-    \ expandtab
-    \ autoindent
-    \ fileformat=unix
-    \ encoding=utf-8
-    \ omnifunc=pythoncomplete#Complete
-    \ formatprg=yapf
-    \ equalprg=yapf
-autocmd FileType python match Error /\s\+$/
-
-" Enable Docstring Preview in Fold Text
-let g:SimpylFold_docstring_preview=1
-
-" Add Virtualenv support
-python3 << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-EOF
-
-" =============================================================================
-"                                YAML Specific
-" =============================================================================
-autocmd Filetype yaml setlocal shiftwidth=2 softtabstop=2 expandtab
-
-" =============================================================================
-"                                JSON Specific
-" =============================================================================
-nmap =j :%!python -m json.tool<CR>
-
-" =============================================================================
-"                                T-SQL Specific
-" =============================================================================
-let g:sql_type_default = "sqlserver"
-au BufNewFile,BufRead *.tsql set filetype=sqlserver
-
+" Configuration for vim-scala
+au BufRead,BufNewFile *.sbt set filetype=scala
