@@ -1,4 +1,5 @@
 {
     "metals.statusBarEnabled": true,
-    "coc.preferences.formatOnType": true
+    "coc.preferences.formatOnType": true,
+    "r.lsp.path": "/usr/local/bin/R"
 }
