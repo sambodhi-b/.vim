@@ -89,6 +89,7 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
+nmap <leader>o           :call CocAction('format')<cr>
 
 " Use `:Fold` to fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
@@ -127,3 +128,8 @@ nnoremap <silent> <space>tb :<C-u>CocCommand metals.tvp metalsBuild<CR>
 nnoremap <silent> <space>tc :<C-u>CocCommand metals.tvp metalsCompile<CR>
 " Reveal current current class (trait or object) in Tree View 'metalsBuild'
 nnoremap <silent> <space>tf :<C-u>CocCommand metals.revealInTreeView metalsBuild<CR>
+
+" Python Specific Settings
+autocmd FileType python setlocal shiftwidth=4 expandtab softtabstop=4 tabstop=4
+autocmd FileType python setlocal autoindent
+autocmd FileType python setlocal colorcolumn=80
