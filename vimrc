@@ -25,6 +25,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Vim-TOML
+Plug 'cespare/vim-toml'
+
 call plug#end()
 
 " Set <leader> to ,
